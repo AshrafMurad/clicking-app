@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const [points, setPoints] = useState(2985775);
@@ -40,10 +41,10 @@ export default function Home() {
       <div className="w-full z-10 min-h-screen flex flex-col items-center text-white">
         <div className="fixed top-0 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-[#ffffff]">
           <div className="w-full cursor-pointer">
-            <div className="bg-[#b1afaf] text-center py-2 rounded-xl flex items-center justify-center">
-              <p className="text-lg">Join Us</p>
+            <Link href='https://tb-tech.io/' target="_blank" className="bg-[#b1afaf] text-center py-2 rounded-xl flex items-center justify-center">
+              <p className="text-lg">TBL TECH</p>
               <MdOutlineKeyboardArrowRight size={25} />
-            </div>
+            </Link>
           </div>
           <div className="mt-12 text-5xl font-bold flex items-center">
             <Image src="/coin.png" alt="" width={60} height={44} />
@@ -72,17 +73,18 @@ export default function Home() {
             </div>
             <div className="flex flex-grow max-w-56 text-sm">
               <div className="w-full bg-[#8478a7] p-1 rounded-2xl flex justify-around">
-                <button className="flex flex-col items-center gap-1">
+                <Link href='https://tb-tech.io/' target="_blank" className="flex flex-col items-center gap-1">
                   <div className="h-10">
                     <Image
-                      src="/friends.png"
+                      src="/tbl.png"
                       alt="high voltage"
                       width={36}
                       height={36}
+                      
                     />
                   </div>
-                  <span>Friends</span>
-                </button>
+                  <span>TBL TECH</span>
+                </Link>
                 <div className="h-12 w-0.5 bg-[#bca6f7] mt-2"></div>
 
                 <button className="flex flex-col items-center gap-1">
