@@ -123,7 +123,7 @@ export default function Home() {
         </div>
         <div className="flex-grow flex items-center justify-center">
           <div className="relative mt-4" onClick={handleClick}>
-            <Image src="/cat.png" alt="cat" width={256} height={256} />
+            <Image src="/main.png" alt="click me" width={256} height={256} />
             {click.map((clicks) => (
               <div
                 key={clicks.id}
