@@ -8,6 +8,7 @@ import WebApp from "@twa-dev/sdk";
 interface UserData {
   id: number;
   first_name: string;
+  last_name?: string;
   username?: string;
 }
 
@@ -63,8 +64,9 @@ export default function Home() {
               />
               {userData ? (
                 <div className="ml-2">
-                  <h1> {userData.username} </h1>
-                  <h1> ID:  {userData.id} </h1>
+                  <h1>first-name : {userData.first_name}</h1>
+                  <h1>last_name : {userData.last_name}</h1>
+                  <h1>username : {userData.username}</h1>
                 </div>
               ) : (
                 <>
