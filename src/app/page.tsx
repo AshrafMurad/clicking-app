@@ -64,6 +64,7 @@ export default function Home() {
               {userData ? (
                 <div className="ml-2">
                   <h1> {userData.username} </h1>
+                  <h1> {userData.id} </h1>
                 </div>
               ) : (
                 <>
