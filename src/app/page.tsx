@@ -65,8 +65,6 @@ export default function Home() {
               {userData ? (
                 <div className="ml-2">
                   <h1>first-name : {userData.first_name}</h1>
-                  <h1>last_name : {userData.last_name}</h1>
-                  <h1>username : {userData.username}</h1>
                 </div>
               ) : (
                 <>
