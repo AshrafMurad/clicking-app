@@ -3,8 +3,16 @@ import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
+import WebApp from "@twa-dev/sdk";
+
+interface UserData {
+  id: number;
+  first_name: string;
+  username?: string;
+}
 
 export default function Home() {
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [points, setPoints] = useState(2985775);
   const [energy, setEnergy] = useState(2532);
   const [click, setClick] = useState<{ id: number; x: number; y: number }[]>(
@@ -35,16 +43,34 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (WebApp.initDataUnsafe.user)
+      setUserData(WebApp.initDataUnsafe.user as UserData);
+  }, []);
   return (
     <div className="min-h-screen px-4 flex flex-col items-center text-white font-medium">
       <div className="absolute inset-0 -z-10 h-full w-full items-center  py-10 [background:radial-gradient(125%_125%_at_50%_10%,#8d8c8c_30%,#422297_100%)] "></div>
       <div className="w-full z-10 min-h-screen flex flex-col items-center text-white">
         <div className="fixed top-0 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-[#ffffff]">
           <div className="w-full cursor-pointer">
-            <Link href='https://tb-tech.io/' target="_blank" className="bg-[#b1afaf] text-center py-2 rounded-xl flex items-center justify-center">
-              <p className="text-lg">TBL TECH</p>
-              <MdOutlineKeyboardArrowRight size={25} />
-            </Link>
+            <div className="flex items-center justify-center rounded-2xl">
+              <Image
+                src="/userIcon.png"
+                alt=""
+                width={36}
+                height={36}
+                className="bg-[#c3bac7] rounded-3xl p-0.5"
+              />
+              {userData ? (
+                <div className="ml-2">
+                  <h1> {userData.username} </h1>
+                </div>
+              ) : (
+                <>
+                  <div className="ml-2">no user name</div>
+                </>
+              )}
+            </div>
           </div>
           <div className="mt-12 text-5xl font-bold flex items-center">
             <Image src="/coin.png" alt="" width={60} height={44} />
@@ -73,14 +99,17 @@ export default function Home() {
             </div>
             <div className="flex flex-grow max-w-56 text-sm">
               <div className="w-full bg-[#8478a7] p-1 rounded-2xl flex justify-around">
-                <Link href='https://tb-tech.io/' target="_blank" className="flex flex-col items-center gap-1">
+                <Link
+                  href="https://tb-tech.io/"
+                  target="_blank"
+                  className="flex flex-col items-center gap-1"
+                >
                   <div className="h-10">
                     <Image
                       src="/tbl.png"
                       alt="high voltage"
                       width={36}
                       height={36}
-                      
                     />
                   </div>
                   <span>TBL TECH</span>
