@@ -4,12 +4,15 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
 import WebApp from "@twa-dev/sdk";
+import { Url } from "url";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface UserData {
   id: number;
   first_name: string;
   last_name?: string;
   username?: string;
+  photo_url?: string 
 }
 
 export default function Home() {
@@ -56,7 +59,7 @@ export default function Home() {
           <div className="w-full cursor-pointer">
             <div className="flex items-center justify-center rounded-2xl">
               <Image
-                src="/userIcon.png"
+                src={`/${userData?.photo_url}`}
                 alt=""
                 width={36}
                 height={36}
