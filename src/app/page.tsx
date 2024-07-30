@@ -67,11 +67,11 @@ export default function Home() {
               />
               {userData ? (
                 <div className="ml-2">
-                  <h1>first-name : {userData.first_name}</h1>
+                  <h1> {userData.first_name}</h1>
                 </div>
               ) : (
                 <>
-                  <div className="ml-2">no user name</div>
+                  <div className="ml-2"></div>
                 </>
               )}
             </div>
