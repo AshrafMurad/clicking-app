@@ -4,8 +4,6 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
 import WebApp from "@twa-dev/sdk";
-import { Url } from "url";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 interface UserData {
   id: number;
@@ -51,6 +49,8 @@ export default function Home() {
     if (WebApp.initDataUnsafe.user)
       setUserData(WebApp.initDataUnsafe.user as UserData);
   }, []);
+
+
   return (
     <div className="min-h-screen px-4 flex flex-col items-center text-white font-medium">
       <div className="absolute inset-0 -z-10 h-full w-full items-center  py-10 [background:radial-gradient(125%_125%_at_50%_10%,#8d8c8c_30%,#422297_100%)] "></div>
@@ -59,8 +59,8 @@ export default function Home() {
           <div className="w-full cursor-pointer">
             <div className="flex items-center justify-center rounded-2xl">
               <Image
-                src={`/${userData?.photo_url}`}
-                alt=""
+                src='/userIcon.png'
+                alt="userICon"
                 width={36}
                 height={36}
                 className="bg-[#c3bac7] rounded-3xl p-0.5"
